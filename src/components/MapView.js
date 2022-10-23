@@ -30,12 +30,12 @@ export default function MapView({data}) {
             url={"https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"} noWrap
             />
 
-          <Marker position={[data.location.lat, data.location.lng]} draggable={true}>
+          <Marker position={[data.location.lat, data.location.lng]}>
             <Popup>
             {data.location.region}
             </Popup>
           </Marker>
-          {handleSetView()}
+          {mapRef.current ? handleSetView() : ""}
 </MapContainer>}
     </div>
   )
